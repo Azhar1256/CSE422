@@ -55,6 +55,7 @@ for i in range(x):
         if (explored[i][j] != -1 and grid[i][j] == 'H'):
             minimumMinutes = max(minimumMinutes,explored[i][j])
 
+            
 
 print('Time: '+str(minimumMinutes)+' minutes ')
 if(numberOfHuman==0):
