@@ -27,11 +27,13 @@ def alpha_beta(height, index, max_player,list, a, b):
         return top
 
 
+    
 
 bottoms = 0
 w = 0
 main = input('Enter your id: ')
 main = main.replace('0','8')
+
 
 
 for i, j in enumerate(main):
