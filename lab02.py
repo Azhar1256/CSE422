@@ -61,6 +61,7 @@ def genetic_algorithm(fitness, n_bits, n_iter, n_pop, r_cross, r_mut, target, ru
         return [0, best]
 
 
+    
 
 #input
 
