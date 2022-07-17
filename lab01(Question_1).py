@@ -32,7 +32,6 @@ def dfs(i,j):
         if(current_i>=0 and current_i<x and current_j>=0 and current_j<y and explored[current_i][current_j]==0 and region[current_i][current_j]=='Y'):
             dfs(current_i,current_j)
 
-
 for i in range(len(region)):
     for j in range(len(region[i])):
       if(explored[i][j]==0 and region[i][j]=='Y'):
