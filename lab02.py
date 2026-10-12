@@ -20,23 +20,28 @@ def mutation(bitstring, r_mut):
 
 
 def selection(pop, scores, k=3):
+    # Tournament selection: pick k random individuals and keep the fittest (lowest score).
     selection_ix = np.random.randint(len(pop))
     for ix in np.random.randint(0, len(pop), k - 1):
-        selection_ix = ix
+        if scores[ix] < scores[selection_ix]:
+            selection_ix = ix
     return pop[selection_ix]
 
 
 def fitness(parent, run, target):
-    sum = 0
+    # Distance from the target sum. The empty subset is not a valid answer.
+    if sum(parent) == 0:
+        return float('inf')
+    total = 0
     for x in range(len(parent)):
-        sum = sum + parent[x] * run[x]
-    return abs(target - sum)
+        total = total + parent[x] * run[x]
+    return abs(target - total)
 
 
 def genetic_algorithm(fitness, n_bits, n_iter, n_pop, r_cross, r_mut, target, run):
     pop = [np.random.randint(0, 2, n_bits).tolist() for _ in range(n_pop)]
 
-    best, best_eval = 0, fitness(pop[0], run, target)
+    best, best_eval = pop[0], fitness(pop[0], run, target)
 
     for gen in range(n_iter):
 
